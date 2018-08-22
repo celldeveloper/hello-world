@@ -17,6 +17,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    [self reverseString:@"Hello World"];
+    
+}
+
+-(void) reverseString:(NSString *)myString
+{
+    NSMutableString *reversedString = [NSMutableString string];
+    NSInteger charIndex = [myString length];
+    while (myString && charIndex > 0) {
+        charIndex--;
+        NSRange subStrRange = NSMakeRange(charIndex, 1);
+        [reversedString appendString:[myString substringWithRange:subStrRange]];
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Hello World" message:reversedString delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    
+    [alert show];
+    
 }
 
 
